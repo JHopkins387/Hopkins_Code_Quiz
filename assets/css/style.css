@@ -1,0 +1,88 @@
+
+*{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+:root {
+    --darkPurple: #613a94;
+    --purple: #946bca;
+    --white: #ffffff;
+}
+h1{
+    font-size: 28pt;
+    padding: 5px;
+    margin: 5pt
+}
+
+p{
+    font-size: large;
+}
+a{
+    text-decoration: none;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+
+.page-content {
+    padding: 50pt 250pt;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.page-content p {
+    text-align: center;
+    padding: 10px;
+}
+.btn-wrapper {
+    display: grid;
+}
+.btn {
+    outline: none;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 14pt;
+    border-radius: 10px;
+    position: relative;
+    background: var(--darkPurple);
+    font-family: arial, sans-serif;
+    color: #1c93ca;
+    margin: 5pt;
+}
+.btn:hover {
+    background: var(--purple);
+    cursor: pointer;
+}
+.left-aligned {
+    text-align: left;
+}
+p.answer-msg {
+    text-decoration: overline;
+    font-style: italic;
+    color: white;
+}
+.initals-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+.form-group {
+    padding: 10pt;
+}
+#intials-form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+#initials {
+    padding: 3pt 9pt;
+    margin: 10pt;
+} 
+.hide {
+    display: none;
+}

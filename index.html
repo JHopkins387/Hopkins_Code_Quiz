@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div>
+                <p><a href="./highscore.html">View High Scores</a></p>
+            </div>
+            <div class="timer-wrapper">
+                <p>Time: <span id="timer">0</span></p>
+            </div>
+        </div>
+    </header>
+    <main class="page-content">
+        <h1 class="page-title">Coding Quiz Challenge</h1>
+        <p>Test your knowledge and see what score you can achieve.
+            Incorrect answers will penalize your score/time by ten seconds! So don't rush!
+        </p>
+        <button class="btn" id="start-quiz" type="button">Start Quiz</button>
+        <div class='btn-wrapper'>
+        </div>
+        <div class="initials-form-wrapper hide">
+            <p></p>
+            <form id="initials-form">
+                <div class="form-group">
+                    <label for="initials">Enter Your Initials</label>
+                    <input id="initials">
+                    <button class="btn" id="submit-form-btn" type="button">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="answer-wrapper hide">
+            <p class="answer-msg"></p>
+        </div>
+    </main>
+    <script src="./assets/js/scripts.js"></script>
+</body>
+
+</html>
