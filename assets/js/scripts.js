@@ -1,3 +1,4 @@
+/Main JAvascript code/
 var score = 0;
 var correctAnswers = 0;
 var quiz = [
@@ -144,6 +145,45 @@ function displayQuestion() {
     }
     return;
 }
+function saveScoreStorage() {
+    var initials = document.querySelector("#initials").value.trim().toUpperCase();
+    var scoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    if (scoreArray.length != 0) {
+        for (var i = 0; i < scoreArray.length; i++) {
+            if (scoreArray[i].initials === initials) {
+                window.alert(
+                    "Looks like you already have a score with those initials, we can update that score for ya."
+                );
+                var existingUserRecord = parseInt(scoreArray[i].score);
+                if (existingUserRecord < score) {
+                    scoreArray.splice(i, 1);
+                    var highScore = {
+                        initials: initials,
+                        score: score,
+                    };
+                    break;
+                } else return;
+            } else if (scoreArray[i].initials != initials) {
+                var highScore = {
+                    initials: initials,
+                    score: score,
+                };
+            }
+        }
+        scoreArray.push(highScore);
+        localStorage.setItem("highScores", JSON.stringify(scoreArray));
+        return;
+
+    } else {
+        var highScore = {
+            initials: initials,
+            score: score,
+        };
+        scoreArray.push(highScore);
+        localStorage.setItem("highScores", JSON.stringify(scoreArray));
+    }
+}
 
 function clearAnswerValidationMsg() {
     setTimeout(function () {
@@ -175,46 +215,6 @@ function pageRedirect() {
         window.location.href = "highscore.html?";
     } else {
         alert("Please type in initials");
-    }
-}
-
-function saveScoreStorage() {
-    var initials = document.querySelector("#initials").value.trim().toUpperCase();
-    var scoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
-
-    if (scoreArray.length != 0) {
-        for (var i = 0; i < scoreArray.length; i++) {
-            if (scoreArray[i].initials === initials) {
-                window.alert(
-                    "Looks like you already have a score with those initials, we can update that score for ya."
-                );
-                var existingUserRecord = parseInt(scoreArray[i].score);
-                if (existingUserRecord < score) {
-                    scoreArray.splice(i, 1);
-                    var highScore = {
-                        initials: initials,
-                        score: score,
-                    };
-                    break;
-                } else return;
-            } else if (scoreArray[i].initials != initials) {
-                var highScore = {
-                    initials: initials,
-                    score: score,
-                };
-            }
-        }
-        scoreArray.push(highScore);
-        localStorage.setItem("highScores", JSON.stringify(scoreArray));
-        return;
-        //if new user then create and push the score object to the array
-    } else {
-        var highScore = {
-            initials: initials,
-            score: score,
-        };
-        scoreArray.push(highScore);
-        localStorage.setItem("highScores", JSON.stringify(scoreArray));
     }
 }
 

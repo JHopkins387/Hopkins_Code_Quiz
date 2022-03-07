@@ -1,3 +1,4 @@
+/Javascript related to the highscore/
 var goBackBtnEl = document.querySelector("#go-back-btn");
 var clearScoreBtnEl = document.querySelector("#clear-scores-btn");
 var textFieldReadOnlyEl = document.querySelector("textArea");

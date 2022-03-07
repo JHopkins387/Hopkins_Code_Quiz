@@ -1,4 +1,4 @@
-
+/* Stylesheet */
 *{
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
@@ -35,10 +35,6 @@ a{
     flex-direction: column;
     align-items: center;
 }
-.page-content p {
-    text-align: center;
-    padding: 10px;
-}
 .btn-wrapper {
     display: grid;
 }
@@ -56,6 +52,11 @@ a{
 .btn:hover {
     cursor: pointer;
 }
+.page-content p {
+    text-align: center;
+    padding: 10px;
+}
+
 .left-aligned {
     text-align: left;
 }
@@ -69,9 +70,6 @@ p.answer-msg {
     flex-direction: column;
     align-items: flex-start; 
 }
-.form-group {
-    padding: 10pt;
-}
 #intials-form {
     display: flex;
     align-items: flex-end;
@@ -81,6 +79,10 @@ p.answer-msg {
     padding: 3pt 9pt;
     margin: 10pt;
 } 
+.form-group {
+    padding: 10pt;
+}
+
 .hide {
     display: none;
 }
