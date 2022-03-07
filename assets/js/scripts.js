@@ -50,17 +50,19 @@ var quiz = [
 ];
 
 var timerEl = document.querySelector("#timer");
-var pageContentEl = document.querySelector(".page-content");
-var startQuizBtnEl = document.querySelector("#start-quiz");
-var pageTitleEl = document.querySelector(".page-title");
-var introMessageEl = document.querySelector(".page-content p");
-var buttonsWraprEl = document.querySelector(".btn-wrapper");
 var scoreEl = document.querySelector("#timer");
+var introMessageEl = document.querySelector(".page-content p");
+var startQuizBtnEl = document.querySelector("#start-quiz");
 var submitFormBtnEl = document.querySelector("#submit-form-btn");
+var pageContentEl = document.querySelector(".page-content");
+var pageTitleEl = document.querySelector(".page-title");
+var buttonsWraprEl = document.querySelector(".btn-wrapper");
+
+
 var answerMessageEl = document.querySelector(".answer-msg");
 
 var startQuizHandler = function () {
-    score = 75;
+    score = 105;
     timerEl.textContent = score;
     pageContentEl.style.alignItems = "flex-start";
     startQuizBtnEl.remove();
@@ -69,7 +71,6 @@ var startQuizHandler = function () {
     countDown();
     displayQuestion();
 };
-
 
 var quizHandler = function (event) {
     document.querySelector(".answer-wrapper").classList.remove("hide");
@@ -159,7 +160,6 @@ function displayDonePage() {
     initialsFormWrapperEl.classList.remove("hide");
 
     var finalScoreEl = document.querySelector(".initials-form-wrapper p");
-
     if (correctAnswers === 0 || score <= 0) {
         score = 0;
         finalScoreEl.textContent = `You got none of them correct, thus your final score is: ${score}.`;
@@ -171,41 +171,41 @@ function displayDonePage() {
 function pageRedirect() {
     var initials = document.querySelector("#initials").value;
     if (initials) {
-        saveScoreInLocalStorage();
+        saveScoreStorage();
         window.location.href = "highscore.html?";
     } else {
         alert("Please type in initials");
     }
 }
 
-function saveScoreInLocalStorage() {
+function saveScoreStorage() {
     var initials = document.querySelector("#initials").value.trim().toUpperCase();
-    var scoresArray = JSON.parse(localStorage.getItem("highScores")) || [];
+    var scoreArray = JSON.parse(localStorage.getItem("highScores")) || [];
 
-    if (scoresArray.length != 0) {
-        for (var i = 0; i < scoresArray.length; i++) {
-            if (scoresArray[i].initials === initials) {
+    if (scoreArray.length != 0) {
+        for (var i = 0; i < scoreArray.length; i++) {
+            if (scoreArray[i].initials === initials) {
                 window.alert(
                     "Looks like you already have a score with those initials, we can update that score for ya."
                 );
-                var existingUserRecord = parseInt(scoresArray[i].score);
+                var existingUserRecord = parseInt(scoreArray[i].score);
                 if (existingUserRecord < score) {
-                    scoresArray.splice(i, 1);
+                    scoreArray.splice(i, 1);
                     var highScore = {
                         initials: initials,
                         score: score,
                     };
                     break;
                 } else return;
-            } else if (scoresArray[i].initials != initials) {
+            } else if (scoreArray[i].initials != initials) {
                 var highScore = {
                     initials: initials,
                     score: score,
                 };
             }
         }
-        scoresArray.push(highScore);
-        localStorage.setItem("highScores", JSON.stringify(scoresArray));
+        scoreArray.push(highScore);
+        localStorage.setItem("highScores", JSON.stringify(scoreArray));
         return;
         //if new user then create and push the score object to the array
     } else {
@@ -213,8 +213,8 @@ function saveScoreInLocalStorage() {
             initials: initials,
             score: score,
         };
-        scoresArray.push(highScore);
-        localStorage.setItem("highScores", JSON.stringify(scoresArray));
+        scoreArray.push(highScore);
+        localStorage.setItem("highScores", JSON.stringify(scoreArray));
     }
 }
 

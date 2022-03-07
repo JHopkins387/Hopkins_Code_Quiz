@@ -49,13 +49,11 @@ a{
     font-size: 14pt;
     border-radius: 10px;
     position: relative;
-    background: var(--darkPurple);
     font-family: arial, sans-serif;
     color: #1c93ca;
     margin: 5pt;
 }
 .btn:hover {
-    background: var(--purple);
     cursor: pointer;
 }
 .left-aligned {
