@@ -11,7 +11,7 @@ CSS/HTML/JS
 
 ## Visit our Website
 
-https://jhopkins387.github.io/Hopkins_Password_Generator
+https://jhopkins387.github.io/Hopkins_Code_Quiz/
 
 # Project Completed By:
  
